@@ -17,12 +17,12 @@ def _label_transfer(dist, labels):
 #adata bdata should be lognormalized,both genes are recommended to be highly variable
 def labeltransfer(adata,bdata,celltype='celltype'):
     """
-        Transfer cell type labels from scRNA-seq to Stereo-seq using Scanorama.
+        Transfer cell type labels from scRNA-seq to Spatial transcriptomics data using Scanorama.
 
         It performs batch correction using Scanorama on the combined datasets and computes the label transfer based on cosine distances between the corrected embeddings.
 
         Parameters:
-            adata (anndata.AnnData): AnnData object representing Stereo-seq.
+            adata (anndata.AnnData): AnnData object representing Spatial transcriptomics data.
             bdata (anndata.AnnData): AnnData object representing scRNA-seq.
             celltype (str): The key in the observation metadata of 'bdata' containing cell type labels. Default is 'celltype'.
 
@@ -37,7 +37,7 @@ def labeltransfer(adata,bdata,celltype='celltype'):
     cdata = anndata.concat(
         adatas2,
         label="dataset",
-        keys=["scRNA-seq", "Stereo-seq"],
+        keys=["scRNA-seq", "St"],
         join="outer",
         uns_merge="first",
     )
@@ -46,7 +46,7 @@ def labeltransfer(adata,bdata,celltype='celltype'):
         cdata[cdata.obs.dataset == "scRNA-seq"].obsm[
             "X_scanorama"
         ],
-        cdata[cdata.obs.dataset == "Stereo-seq"].obsm[
+        cdata[cdata.obs.dataset == "St"].obsm[
             "X_scanorama"
         ],
     )

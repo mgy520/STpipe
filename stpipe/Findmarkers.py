@@ -6,7 +6,7 @@ from scipy.sparse import issparse
 
 def findallmarkers(cdata, cluster_key, min_pct=0.1, only_pos=True):
     """
-        Find marker genes for each cluster in cdata.
+        Find marker genes for each cluster in Spatial transcriptomics data.
 
         Parameters:
             cdata (Anndata): An Anndata object.

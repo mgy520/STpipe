@@ -42,7 +42,7 @@ nav:
   - Installation: Installation/index.md
   - Tutorial:
       - Tutorial/Analyzing Zebrafish 10hpf Embryo Stereo-seq Data with STpipe.ipynb
-      - Tutorial/Spatail cluster with STpipe.ipynb
+      - Tutorial/Spatial cluster with STpipe.ipynb
       - Tutorial/Identify false positive genes with STpipe.ipynb
       - Tutorial/Spatial metacell analysis with STpipe.ipynb
   - API Reference:

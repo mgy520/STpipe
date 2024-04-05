@@ -441,9 +441,9 @@ def plot_marker_dotplot(cdata, genes=[], groupby='leiden', figsize=(10, 8), vmin
 def plot_spatial(adata, by=None, s=5, cmap=None, savefig=None, dpi=360, figsize=(6, 6),
                  tiff=None, coord='spatial', title=None, legend=False, categorical=False, legend_title=True):
     """
-        Plot spatial information from Stereo-seq data.
+        Plot spatial information from Spatial transcriptomics data.
 
-        This function visualizes spatial information from Stereo-seq data. It can display cell
+        This function visualizes spatial information for Spatial transcriptomics data. It can display cell
         coordinates on an image, with the option to color cells based on a specified category or gene expression level.
 
         Parameters:
@@ -590,7 +590,7 @@ def plot_labeltransfer_score_violin(adata_transfer, groupby='id', inner=None, sa
 
 
 def plot_cellcount_between_ref_query(adata_query, adata_ref ,key1='labeltransfer_celltype', key2='celltype', figsize=(12, 5),
-                                     xrotation=45, xha='right', save=None, title1='scRNA-seq', title2='Stereo-seq',dpi=360):
+                                     xrotation=45, xha='right', save=None, title1='scRNA-seq', title2='St',dpi=360):
     """
         Plot cell count comparison between reference and query datasets.
 
@@ -607,7 +607,7 @@ def plot_cellcount_between_ref_query(adata_query, adata_ref ,key1='labeltransfer
             xha (str): Horizontal alignment of x-axis tick labels. Defaults to 'right'.
             save (str or None): File path to save the plot. If None, the plot is not saved. Defaults to None.
             title1 (str): Title for the query dataset plot. Defaults to 'scRNA-seq'.
-            title2 (str): Title for the reference dataset plot. Defaults to 'Stereo-seq'.
+            title2 (str): Title for the reference dataset plot. Defaults to 'St'.
             dpi (int): Dots per inch for the saved figure. Defaults to 360.
         """
     adata_celltype_counts = adata_query.obs[key1].value_counts()

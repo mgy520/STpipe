@@ -284,7 +284,7 @@ def PCA(adata,n_components=50,random_state=42,method='pca'):
 
 def tsne(adata, input=15, perplexity=30, learning_rate='auto', random_seed=42,early_exaggeration=12, metric='euclidean',n_jobs=1,**kwargs):
     """
-        Perform t-distributed Stochastic Neighbor Embedding (t-SNE) dimensionality reduction on single-cell RNA-seq data.
+        Perform t-distributed Stochastic Neighbor Embedding (t-SNE) dimensionality reduction on Spatial transcriptomics data.
 
         Parameters:
             adata (AnnData): An anndata object.
@@ -407,10 +407,10 @@ def leiden(adata, resolution=1.0):
 ##adata,bdata both lognormalized
 def falsepositive(ad_sp, ad_sc, train_gene=[], device='cuda:0', density_prior='rna_count_based', celltype=None):
     """
-        Identify false-positive genes between Stereo-seq data and scRNA-seq data.
+        Identify false-positive genes between Spatial transcriptomics data and scRNA-seq data.
 
         Parameters:
-            ad_sp (anndata.AnnData): Anndata object containing Stereo-seq data.
+            ad_sp (anndata.AnnData): Anndata object containing Spatial transcriptomics data.
             ad_sc (anndata.AnnData): Anndata object containing scRNA-seq data.
             train_gene (list): List of genes to use for training. Default is an empty list.
             density_prior (str, ndarray or None): Spatial density of spots, when is a string, value can be 'rna_count_based' or 'uniform', when is a ndarray, shape = (number_spots,). This array should satisfy the constraints sum() == 1. If None, the density term is ignored. Default value is 'rna_count_based'.
@@ -418,9 +418,10 @@ def falsepositive(ad_sp, ad_sc, train_gene=[], device='cuda:0', density_prior='r
             celltype (str or None, optional): Cell type key in ad_sp.obs. If provided, the cell types in the scRNA-seq will be mapped to the spatial transcriptomic data. Default value is None.
 
         Returns:
-            moran_ad_sp (pandas.Series): Pandas series containing Moran's I statistic for Stereo-seq data.\n
+            moran_ad_sp (pandas.Series): Pandas series containing Moran's I statistic for Spatial transcriptomics data.\n
             moran_ad_sc (pandas.Series): Pandas series containing Moran's I statistic for scRNA-seq data.\n
-            ad_ge (anndata.AnnData): AnnData object represents the scRNA-seq data mapping to the Stereo-seq space.
+            ad_ge (anndata.AnnData): AnnData object represents the scRNA-seq data mapping to the Spatial transcriptomics space.
+            as_sp (anndata.AnnData): ad_sp with celltype
         """
     if 'moranI' not in ad_sp.var:
         ad_sp = sinfonia.spatially_variable_genes(ad_sp, mode='moran', coordinate_key='spatial')

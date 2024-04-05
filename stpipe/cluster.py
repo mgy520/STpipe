@@ -6,10 +6,10 @@ anndata2ri.activate()
 
 def cluster(cdata, K_set, neighborhood_size, n_PCs):
     """
-        Stereo-seq data spatial clustering.
+        Spatial transcriptomics data spatial clustering.
 
         Parameters:
-            cdata (Anndata): Anndata object containing the single-cell data.
+            cdata (Anndata): Anndata object for Spatial transcriptomics data.
             K_set (list): List of integers specifying the range of cluster numbers to consider.for example:np.arange(10,30)
             neighborhood_size (int): Size of the neighborhood for computing adjacency matrix.
             n_PCs (int): Number of principal components to use.

@@ -10,7 +10,7 @@ def spatial_bigcells(adata, method='walktrap', n_pca=30, n_neighbors=200, n_jobs
         Detect spatial metacell using network-based clustering algorithms.
 
         Parameters:
-            adata (anndata.AnnData): An AnnData object representing the Stereo-seq data.
+            adata (anndata.AnnData): An AnnData object representing the Spatial transcriptomics data.
             method (str, optional): The clustering method to use. Options are 'walktrap', 'edge_betweenness', 'leiden', 'multilevel', and 'infomap'.
             n_pca (int, optional): Number of principal components to use for dimensionality reduction.
             n_neighbors (int, optional): Number of neighbors to consider for constructing the k-nearest neighbor graph.
