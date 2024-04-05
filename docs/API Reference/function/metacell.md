@@ -1,0 +1,1 @@
+::: stpipe.spatial_metacell.spatial_bigcells

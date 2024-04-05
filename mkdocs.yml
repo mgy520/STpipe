@@ -1,0 +1,73 @@
+site_name: STpipe
+
+theme:
+  icon:
+    logo: material/home
+  name: "material"
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark
+
+    - media: "(prefers-color-scheme: dark)"
+      primary: teal
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tracking
+    - toc.follow
+    - navigation.top
+    - search.suggest
+    - navigation.footer
+
+plugins:
+  - search
+  - mkdocs-jupyter:
+      ignore_h1_titles: True
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: false
+            show_root_heading: yes
+
+nav:
+  - Home: index.md
+  - Installation: Installation/index.md
+  - Tutorial:
+      - Tutorial/Analyzing Zebrafish 10hpf Embryo Stereo-seq Data with STpipe.ipynb
+      - Tutorial/Spatail cluster with STpipe.ipynb
+      - Tutorial/Identify false positive genes with STpipe.ipynb
+      - Tutorial/Spatial metacell analysis with STpipe.ipynb
+  - API Reference:
+    - function:
+      - API Reference/function/format.md
+      - API Reference/function/qc.md
+      - API Reference/function/insert_tiff.md
+      - API Reference/function/filtercells.md
+      - API Reference/function/filtergenes.md
+      - API Reference/function/lognormal.md
+      - API Reference/function/vst_highly_variable_genes.md
+      - API Reference/function/svg.md
+      - API Reference/function/scale.md
+      - API Reference/function/pca.md
+      - API Reference/function/tsne.md
+      - API Reference/function/findneighbors.md
+      - API Reference/function/leiden.md
+      - API Reference/function/Spatial_cluster.md
+      - API Reference/function/findmarkers.md
+      - API Reference/function/metacell.md
+      - API Reference/function/generate_membership_anndata.md
+      - API Reference/function/falsepositive.md
+      - API Reference/function/labeltransfer.md
+    - plot: API Reference/plot/plot_function.md
+  - License: License/index.md
+
+extra_css:
+  - stylesheets/extra.css
